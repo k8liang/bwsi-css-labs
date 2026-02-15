@@ -53,6 +53,24 @@ def request_sanitized_number(prompt: str) -> float:
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
+def request_sanitized_operation(prompt: str) -> str:
+    """
+    Function that prompts the user for an operation and ensures that the input is valid.
+
+    Args:
+        prompt (str): The message to display when asking for input.
+
+    Returns:
+        str: The valid operation entered by the user.
+    """
+    valid_operations = {"add", "subtract", "multiply", "divide"}
+    while True:
+        operation = input(prompt).strip().lower()
+        if operation in valid_operations:
+            return operation
+        else:
+            print("Invalid input. Please enter 'add', 'subtract', 'multiply', or 'divide'.")
+
 def main():
     
     print(f"===== Simple Calculator =====")
